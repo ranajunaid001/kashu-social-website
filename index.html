@@ -516,13 +516,12 @@
         }
 
         /* Dynamic Showcase Section */
-        .showcase-overlap {
-            position: absolute;
-            bottom: -250px;
-            left: 0;
-            right: 0;
+        .showcase-section {
+            position: relative;
+            margin-top: -250px;
             z-index: 10;
             overflow: hidden;
+            padding-top: 250px;
         }
 
         .showcase-container {
@@ -613,9 +612,11 @@
         /* Footer CTA Section */
         .footer-cta {
             background-color: #1a1a1a;
-            padding: 300px 2rem 6rem;
+            padding: 0 2rem 6rem;
+            padding-top: 250px;
             text-align: center;
             position: relative;
+            margin-top: -250px;
         }
 
         .footer-cta-content {
