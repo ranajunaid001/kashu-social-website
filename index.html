@@ -109,10 +109,17 @@
         }
 
         .hero-content {
-            max-width: var(--max-width);
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
             position: relative;
+            padding: 0 3rem;
+        }
+
+        .hero-text-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .back-badge {
@@ -137,7 +144,7 @@
         .hero-description {
             font-size: clamp(1rem, 2vw, 1.125rem);
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin: 0 auto 2rem;
             max-width: 600px;
         }
 
@@ -391,10 +398,14 @@
                 gap: 2.5rem;
             }
 
-            .hero {
-                padding: 5rem 3rem;
-                position: relative;
-                overflow: visible;
+            .hero-content {
+                padding: 0 4rem;
+            }
+            
+            .hero-text-wrapper {
+                text-align: left;
+                max-width: 900px;
+                margin: 0;
             }
 
             .circular-badge {
@@ -522,13 +533,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>The Leading Full-Funnel E-commerce Growth Agency</h1>
-            
-            <p class="hero-description">
-                We scale brands by bringing data-driven decisions and creativity together through industry-leading acquisition and retention strategies.
-            </p>
-            
-            <a href="#contact" class="cta-button">Contact us</a>
+            <div class="hero-text-wrapper">
+                <h1>The Leading Full-Funnel E-commerce Growth Agency</h1>
+                
+                <p class="hero-description">
+                    We scale brands by bringing data-driven decisions and creativity together through industry-leading acquisition and retention strategies.
+                </p>
+                
+                <a href="#contact" class="cta-button">Contact us</a>
+            </div>
 
             <!-- Circular Badge - Desktop Only -->
             <div class="circular-badge">
