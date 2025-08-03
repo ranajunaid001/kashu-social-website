@@ -1,5 +1,5 @@
 {
-  "name": "lilo-social-website",
+  "name": "kashu-social-website",
   "version": "1.0.0",
   "scripts": {
     "start": "npx http-server -p $PORT"
