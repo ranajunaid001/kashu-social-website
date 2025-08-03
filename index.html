@@ -3,189 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lilo Social - E-commerce Growth Agency</title>
+    <meta name="description" content="Klyne - The Leading Full-Funnel E-commerce Growth Agency. We scale brands through data-driven decisions and industry-leading strategies.">
+    <title>Klyne - E-commerce Growth Agency</title>
+    
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    
+    <!-- Critical CSS inline for fastest initial paint -->
     <style>
+        /* Critical CSS - Inline for performance */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-orange: #ff6b35;
+            --primary-dark: #1a1a1a;
+            --bg-light: #f8f5f2;
+            --text-gray: #666;
+            --max-width: 1440px;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f8f5f2;
+            background-color: var(--bg-light);
+            color: var(--primary-dark);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Navigation - Mobile First */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 60px;
-            background-color: #f8f5f2;
             position: sticky;
             top: 0;
             z-index: 1000;
+            background-color: var(--bg-light);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            font-size: 20px;
-            font-weight: 500;
+            gap: 0.5rem;
         }
 
         .logo::before {
             content: '';
-            width: 24px;
-            height: 24px;
-            background-color: #ff6b35;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--primary-orange);
             border-radius: 50%;
-            margin-right: 10px;
-            position: relative;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary-dark);
+            transition: all 0.3s ease;
         }
 
         .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
+            display: none;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ff6b35;
-        }
-
-        .contact-btn {
-            background-color: #ff6b35;
-            color: white !important;
-            padding: 18px 40px;
-            border-radius: 35px 35px 35px 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .contact-btn:hover {
-            background-color: #e55a2b;
-        }
-
-        /* Hero Section */
+        /* Hero Section - Mobile First */
         .hero {
-            padding: 80px 60px 120px;
+            padding: 3rem 1rem;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
             position: relative;
         }
 
         .back-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
             background-color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 0.75rem 1.25rem;
+            border-radius: 2rem;
             border: 1px solid #eee;
-            margin-bottom: 40px;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .back-badge::before {
-            content: '🎯';
-            font-size: 16px;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
         }
 
         h1 {
-            font-size: 72px;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 500;
             line-height: 1.1;
-            color: #1a1a1a;
-            margin-bottom: 40px;
-            max-width: 900px;
+            margin-bottom: 2rem;
         }
 
         .hero-description {
-            font-size: 18px;
+            font-size: clamp(1rem, 2vw, 1.125rem);
             line-height: 1.6;
-            color: #333;
+            margin-bottom: 2rem;
             max-width: 600px;
-            margin-bottom: 40px;
         }
 
-        .hero-cta {
-            background-color: #ff6b35;
+        .cta-button {
+            background-color: var(--primary-orange);
             color: white !important;
-            padding: 18px 40px;
-            border-radius: 35px 35px 35px 8px;
+            padding: 1rem 2rem;
+            border-radius: 2.2rem 2.2rem 2.2rem 0.5rem;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 1.125rem;
             display: inline-block;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .hero-cta:hover {
-            background-color: #e55a2b;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
         }
 
-        /* Circular Badge */
+        /* Circular Badge - Hidden on mobile */
         .circular-badge {
-            position: absolute;
-            right: 100px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 160px;
-            height: 160px;
-        }
-
-        .circular-badge svg {
-            width: 100%;
-            height: 100%;
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .badge-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background-color: #ff6b35;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
+            display: none;
         }
 
         /* Slider Section */
         .slider-container {
             position: relative;
-            height: 400px;
+            height: 300px;
             overflow: hidden;
-            background-color: #f8f5f2;
+            margin: 3rem 0;
         }
 
         .slider {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
             animation: slide 30s linear infinite;
             position: absolute;
             bottom: 0;
@@ -193,13 +181,11 @@
 
         .slide-card {
             flex-shrink: 0;
-            width: 320px;
-            height: 320px;
-            border-radius: 40px;
+            width: 250px;
+            height: 250px;
+            border-radius: 2rem;
             overflow: hidden;
             position: relative;
-            background-size: cover;
-            background-position: center;
         }
 
         .slide-card img {
@@ -208,72 +194,356 @@
             object-fit: cover;
         }
 
-        .brand-logo {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
         @keyframes slide {
-            0% {
-                transform: translateX(0);
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Partners Section */
+        .partners-section {
+            padding: 3rem 1rem;
+        }
+
+        .partners-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .partners-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .partners-header h2 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .red-dot {
+            color: var(--primary-orange);
+        }
+
+        .partners-header p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section - Mobile First */
+        .stats-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+        }
+
+        .stat-icon.klaviyo {
+            background-color: #ff9d7e;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .stat-card h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .stat-card p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        /* Animated Logo Rows */
+        .animated-logos {
+            padding: 3rem 0;
+            overflow: hidden;
+        }
+
+        .logo-track-wrapper {
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .logo-track {
+            display: flex;
+            gap: 3rem;
+            white-space: nowrap;
+            align-items: center;
+        }
+
+        .track-right {
+            animation: scrollRight 40s linear infinite;
+        }
+
+        .track-left {
+            animation: scrollLeft 40s linear infinite;
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .logo-img {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-item {
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
             }
-            100% {
-                transform: translateX(-50%);
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--primary-dark);
+                font-weight: 400;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-orange);
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .slide-card {
+                width: 280px;
+                height: 280px;
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .logo-img {
+                height: 35px;
             }
         }
 
-        /* Placeholder styles for cards */
-        .card1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .card3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .card4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        .card5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .card6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        /* Desktop Styles */
+        @media (min-width: 1024px) {
+            nav {
+                padding: 2rem 3rem;
+            }
+
+            .nav-links {
+                gap: 2.5rem;
+            }
+
+            .hero {
+                padding: 5rem 3rem;
+                position: relative;
+                overflow: visible;
+            }
+
+            .circular-badge {
+                display: block;
+                position: absolute;
+                right: -80px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 160px;
+                height: 160px;
+                z-index: 1;
+            }
+
+            .circular-badge svg {
+                width: 100%;
+                height: 100%;
+                animation: rotate 20s linear infinite;
+            }
+
+            @keyframes rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+
+            .badge-center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40px;
+                height: 40px;
+                background-color: var(--primary-orange);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 24px;
+            }
+
+            .slide-card {
+                width: 320px;
+                height: 320px;
+                border-radius: 2.5rem;
+            }
+
+            .slider-container {
+                height: 400px;
+            }
+
+            .partners-header {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 6rem;
+                align-items: start;
+                text-align: left;
+            }
+
+            .partners-header p {
+                max-width: none;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .hero {
+                padding: 6rem 4rem;
+            }
+
+            .partners-section {
+                padding: 6rem 4rem;
+            }
+        }
+
+        /* Loading optimization */
+        img {
+            loading: lazy;
+            decoding: async;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles */
+        a:focus, button:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">Klyne</div>
-        <div class="nav-links">
-            <a href="#">Services</a>
-            <a href="#">Case studies</a>
-            <a href="#">About us</a>
-            <a href="#">Careers</a>
-            <a href="#" class="contact-btn">Contact us</a>
+        <div class="nav-container">
+            <div class="logo">Klyne</div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#case-studies">Case studies</a>
+                <a href="#about">About us</a>
+                <a href="#careers">Careers</a>
+                <a href="#contact" class="cta-button">Contact us</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="back-badge">BACK TO BACK INC. 5000 HONOREE</div>
-        
-        <h1>The Leading Full-Funnel E-commerce Growth Agency</h1>
-        
-        <p class="hero-description">
-            We scale brands by bringing data-driven decisions and creativity together through industry-leading acquisition and retention strategies.
-        </p>
-        
-        <a href="#" class="hero-cta">Contact us</a>
+        <div class="hero-content">
+            <h1>The Leading Full-Funnel E-commerce Growth Agency</h1>
+            
+            <p class="hero-description">
+                We scale brands by bringing data-driven decisions and creativity together through industry-leading acquisition and retention strategies.
+            </p>
+            
+            <a href="#contact" class="cta-button">Contact us</a>
 
-        <!-- Circular Badge -->
-        <div class="circular-badge">
-            <svg viewBox="0 0 160 160">
-                <defs>
-                    <path id="circle" d="M 80, 80 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"></path>
-                </defs>
-                <text font-size="11" fill="#333">
-                    <textPath href="#circle">
-                        GET AN AUDIT • GET AN AUDIT • GET AN AUDIT • GET AN AUDIT • 
-                    </textPath>
-                </text>
-            </svg>
-            <div class="badge-center">•</div>
+            <!-- Circular Badge - Desktop Only -->
+            <div class="circular-badge">
+                <svg viewBox="0 0 160 160">
+                    <defs>
+                        <path id="circle" d="M 80, 80 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"></path>
+                    </defs>
+                    <text font-size="11" fill="#333">
+                        <textPath href="#circle">
+                            GET AN AUDIT • GET AN AUDIT • GET AN AUDIT • GET AN AUDIT • 
+                        </textPath>
+                    </text>
+                </svg>
+                <div class="badge-center">•</div>
+            </div>
         </div>
     </section>
 
@@ -282,221 +552,179 @@
         <div class="slider">
             <!-- First set of cards -->
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219231/HMB_dcabwt.jpg" alt="HMB">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219231/HMB_dcabwt.jpg" alt="HMB" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219228/homepage-bauer_y99qz7.jpg" alt="BAUER">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219228/homepage-bauer_y99qz7.jpg" alt="BAUER" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/Cheribundi-1-1_qm48zp.jpg" alt="Cheribundi">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/Cheribundi-1-1_qm48zp.jpg" alt="Cheribundi" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219230/DynaVap-1_qhqboj.jpg" alt="DynaVap">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219230/DynaVap-1_qhqboj.jpg" alt="DynaVap" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/True-Botanicals_lmoumk.jpg" alt="True Botanicals">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/True-Botanicals_lmoumk.jpg" alt="True Botanicals" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219225/homepage-HER_emh3hr.jpg" alt="HER">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219225/homepage-HER_emh3hr.jpg" alt="HER" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Humantra_wyks6o.jpg" alt="Humantra">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Humantra_wyks6o.jpg" alt="Humantra" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/LC-1_nvxpgc.jpg" alt="LC">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/LC-1_nvxpgc.jpg" alt="LC" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Lucyd_aekdor.jpg" alt="Lucyd">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Lucyd_aekdor.jpg" alt="Lucyd" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219227/homepage-SEEQ_yiwlo9.jpg" alt="SEEQ">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219227/homepage-SEEQ_yiwlo9.jpg" alt="SEEQ" loading="lazy">
             </div>
             <!-- Duplicate set for continuous loop -->
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219231/HMB_dcabwt.jpg" alt="HMB">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219231/HMB_dcabwt.jpg" alt="HMB" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219228/homepage-bauer_y99qz7.jpg" alt="BAUER">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219228/homepage-bauer_y99qz7.jpg" alt="BAUER" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/Cheribundi-1-1_qm48zp.jpg" alt="Cheribundi">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/Cheribundi-1-1_qm48zp.jpg" alt="Cheribundi" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219230/DynaVap-1_qhqboj.jpg" alt="DynaVap">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219230/DynaVap-1_qhqboj.jpg" alt="DynaVap" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/True-Botanicals_lmoumk.jpg" alt="True Botanicals">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/True-Botanicals_lmoumk.jpg" alt="True Botanicals" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219225/homepage-HER_emh3hr.jpg" alt="HER">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219225/homepage-HER_emh3hr.jpg" alt="HER" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Humantra_wyks6o.jpg" alt="Humantra">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Humantra_wyks6o.jpg" alt="Humantra" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/LC-1_nvxpgc.jpg" alt="LC">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/LC-1_nvxpgc.jpg" alt="LC" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Lucyd_aekdor.jpg" alt="Lucyd">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Lucyd_aekdor.jpg" alt="Lucyd" loading="lazy">
             </div>
             <div class="slide-card">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219227/homepage-SEEQ_yiwlo9.jpg" alt="SEEQ">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219227/homepage-SEEQ_yiwlo9.jpg" alt="SEEQ" loading="lazy">
             </div>
         </div>
     </div>
 
     <!-- Partners Section -->
     <section class="partners-section">
-        <div class="partners-header">
-            <h2>Partners,<br>Not Clients<span class="red-dot">.</span></h2>
-            <p>Top brands don't just pick us—they stick with us. With exceptional retention rates and loyalty that speak volumes, we're the team that's all in for your long haul and committed to fueling lasting success.</p>
-        </div>
-
-        <!-- Brand Logos Grid -->
-        <div class="brands-grid">
-            <div class="brand-logo">kroma.</div>
-            <div class="brand-logo">MATCHA BAR</div>
-            <div class="brand-logo">Microsoft</div>
-            <div class="brand-logo">NEWTON GOLF</div>
-            <div class="brand-logo">ANIMAL</div>
-            <div class="brand-logo">BAUER</div>
-            <div class="brand-logo">Bearaby</div>
-            <div class="brand-logo">BIOTRUST</div>
-            <div class="brand-logo">cheribundi</div>
-        </div>
-
-        <div class="brands-grid">
-            <div class="brand-logo">SHEEFIT</div>
-            <div class="brand-logo">TED</div>
-            <div class="brand-logo">THE NUE CO</div>
-            <div class="brand-logo">THESIS</div>
-            <div class="brand-logo">TRUE BOTANICALS</div>
-            <div class="brand-logo">Paul Stuart</div>
-            <div class="brand-logo">PEZ</div>
-            <div class="brand-logo">peluva</div>
-            <div class="brand-logo">PUBLIC GOODS</div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon">🌿</div>
-                <h3>Back to back<br>Inc. 5000 Honoree</h3>
-                <p>Our results and commitment to our partners has led to rapid growth. This has landed us on the Inc. 500 list of the fasting growing, private companies in 2023 and 2024.</p>
+        <div class="partners-container">
+            <div class="partners-header">
+                <h2>Partners,<br>Not Clients<span class="red-dot">.</span></h2>
+                <p>Top brands don't just pick us—they stick with us. With exceptional retention rates and loyalty that speak volumes, we're the team that's all in for your long haul and committed to fueling lasting success.</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon klaviyo">K</div>
-                <h3>Klaviyo Master Elite<br>Agency</h3>
-                <p>The Elite Tier is Klaviyo's highest partner status, achieved by only 0.2% of 6,500+ partners. We were handpicked by Klaviyo for our impressive retention expertise.</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">📈</div>
-                <h3>Billions in Attributed<br>Revenue</h3>
-                <p>We have tracked billions of dollars in attributed revenue for our partners over the years through paid media and retention efforts. Our impact is only continuing to grow, let us drive your growth.</p>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">🌿</div>
+                    <h3>Back to back<br>Inc. 5000 Honoree</h3>
+                    <p>Our results and commitment to our partners has led to rapid growth. This has landed us on the Inc. 500 list of the fasting growing, private companies in 2023 and 2024.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon klaviyo">K</div>
+                    <h3>Klaviyo Master Elite<br>Agency</h3>
+                    <p>The Elite Tier is Klaviyo's highest partner status, achieved by only 0.2% of 6,500+ partners. We were handpicked by Klaviyo for our impressive retention expertise.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <h3>Billions in Attributed<br>Revenue</h3>
+                    <p>We have tracked billions of dollars in attributed revenue for our partners over the years through paid media and retention efforts. Our impact is only continuing to grow, let us drive your growth.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <style>
-        /* Partners Section */
-        .partners-section {
-            padding: 100px 60px;
-            background-color: #f8f5f2;
-        }
+    <!-- Animated Logo Rows -->
+    <section class="animated-logos">
+        <div class="logo-track-wrapper">
+            <div class="logo-track track-right">
+                <!-- First set -->
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/bauer_llfei7.jpg" alt="BAUER" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/bearaby_ulrhfs.jpg" alt="Bearaby" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/biotrust_eqg3cd.jpg" alt="BioTRUST" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/cheribundi_nfnat6.jpg" alt="cheribundi" class="logo-img" loading="lazy">
+                <div class="logo-item">HUMANTRA</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/kroma_e1pdpr.jpg" alt="kroma" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/matchabar_cg3wgb.jpg" alt="MATCHA BAR" class="logo-img" loading="lazy">
+                <div class="logo-item">■ Microsoft</div>
+                <div class="logo-item">NEWTON GOLF</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/animal_nywfd4.jpg" alt="ANIMAL" class="logo-img" loading="lazy">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/bauer_llfei7.jpg" alt="BAUER" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/bearaby_ulrhfs.jpg" alt="Bearaby" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/biotrust_eqg3cd.jpg" alt="BioTRUST" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/cheribundi_nfnat6.jpg" alt="cheribundi" class="logo-img" loading="lazy">
+                <div class="logo-item">HUMANTRA</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/kroma_e1pdpr.jpg" alt="kroma" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/matchabar_cg3wgb.jpg" alt="MATCHA BAR" class="logo-img" loading="lazy">
+                <div class="logo-item">■ Microsoft</div>
+                <div class="logo-item">NEWTON GOLF</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/animal_nywfd4.jpg" alt="ANIMAL" class="logo-img" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="logo-track-wrapper">
+            <div class="logo-track track-left">
+                <!-- First set -->
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/true-botanicals_iarztj.jpg" alt="TRUE BOTANICALS" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/paulstuart_iqxsft.jpg" alt="Paul Stuart" class="logo-img" loading="lazy">
+                <div class="logo-item">PEZ</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/peluva_wboymk.jpg" alt="peluva" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/public-goods_wfkwlm.jpg" alt="PUBLIC GOODS" class="logo-img" loading="lazy">
+                <div class="logo-item">SEED</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/shefit_nluoqe.jpg" alt="SHEEFIT" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/ted_qdxw2a.jpg" alt="TED" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/the-nue-co_ah4mxl.jpg" alt="THE NUE CO" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/thesis_wolrnp.jpg" alt="THESIS" class="logo-img" loading="lazy">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/true-botanicals_iarztj.jpg" alt="TRUE BOTANICALS" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/paulstuart_iqxsft.jpg" alt="Paul Stuart" class="logo-img" loading="lazy">
+                <div class="logo-item">PEZ</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/peluva_wboymk.jpg" alt="peluva" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/public-goods_wfkwlm.jpg" alt="PUBLIC GOODS" class="logo-img" loading="lazy">
+                <div class="logo-item">SEED</div>
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/shefit_nluoqe.jpg" alt="SHEEFIT" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/ted_qdxw2a.jpg" alt="TED" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/the-nue-co_ah4mxl.jpg" alt="THE NUE CO" class="logo-img" loading="lazy">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/thesis_wolrnp.jpg" alt="THESIS" class="logo-img" loading="lazy">
+            </div>
+        </div>
+    </section>
 
-        .partners-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 80px;
-            gap: 100px;
-        }
+    <!-- Mobile Menu Script -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle?.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-menu-active');
+            menuToggle.classList.toggle('active');
+        });
 
-        .partners-header h2 {
-            font-size: 64px;
-            font-weight: 500;
-            line-height: 1.1;
-            color: #1a1a1a;
-            margin: 0;
-        }
-
-        .red-dot {
-            color: #ff6b35;
-        }
-
-        .partners-header p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-            max-width: 500px;
-            margin: 0;
-        }
-
-        /* Brands Grid */
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(9, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-            align-items: center;
-        }
-
-        .brand-logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 100px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .stat-icon {
-            font-size: 48px;
-            margin-bottom: 30px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-icon.klaviyo {
-            background-color: #ff9d7e;
-            color: white;
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            font-size: 40px;
-            font-weight: bold;
-            margin: 0 auto 30px;
-        }
-
-        .stat-card h3 {
-            font-size: 32px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-            line-height: 1.2;
-        }
-
-        .stat-card p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #666;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-    </style>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
