@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilo Social - E-commerce Growth Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8f5f2;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background-color: #f8f5f2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .logo::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background-color: #ff6b35;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .contact-btn {
+            background-color: #ff6b35;
+            color: white !important;
+            padding: 18px 40px;
+            border-radius: 35px 35px 35px 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            background-color: #e55a2b;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 60px 120px;
+            position: relative;
+        }
+
+        .back-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #eee;
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .back-badge::before {
+            content: '🎯';
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            max-width: 900px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .hero-cta {
+            background-color: #ff6b35;
+            color: white !important;
+            padding: 18px 40px;
+            border-radius: 35px 35px 35px 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #e55a2b;
+        }
+
+        /* Circular Badge */
+        .circular-badge {
+            position: absolute;
+            right: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px;
+            height: 160px;
+        }
+
+        .circular-badge svg {
+            width: 100%;
+            height: 100%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .badge-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Slider Section */
+        .slider-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background-color: #f8f5f2;
+        }
+
+        .slider {
+            display: flex;
+            gap: 20px;
+            animation: slide 30s linear infinite;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .slide-card {
+            flex-shrink: 0;
+            width: 320px;
+            height: 320px;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Placeholder styles for cards */
+        .card1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .card3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .card4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .card5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .card6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">lilo·social</div>
+        <div class="nav-links">
+            <a href="#">Services</a>
+            <a href="#">Case studies</a>
+            <a href="#">About us</a>
+            <a href="#">Careers</a>
+            <a href="#" class="contact-btn">Contact us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="back-badge">BACK TO BACK INC. 5000 HONOREE</div>
+        
+        <h1>The Leading Full-Funnel E-commerce Growth Agency</h1>
+        
+        <p class="hero-description">
+            We scale brands by bringing data-driven decisions and creativity together through industry-leading acquisition and retention strategies.
+        </p>
+        
+        <a href="#" class="hero-cta">Contact us</a>
+
+        <!-- Circular Badge -->
+        <div class="circular-badge">
+            <svg viewBox="0 0 160 160">
+                <defs>
+                    <path id="circle" d="M 80, 80 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"></path>
+                </defs>
+                <text font-size="11" fill="#333">
+                    <textPath href="#circle">
+                        GET AN AUDIT • GET AN AUDIT • GET AN AUDIT • GET AN AUDIT • 
+                    </textPath>
+                </text>
+            </svg>
+            <div class="badge-center">•</div>
+        </div>
+    </section>
+
+    <!-- Slider Section -->
+    <div class="slider-container">
+        <div class="slider">
+            <!-- First set of cards -->
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219231/HMB_dcabwt.jpg" alt="HMB">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219228/homepage-bauer_y99qz7.jpg" alt="BAUER">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/Cheribundi-1-1_qm48zp.jpg" alt="Cheribundi">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219230/DynaVap-1_qhqboj.jpg" alt="DynaVap">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/True-Botanicals_lmoumk.jpg" alt="True Botanicals">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219225/homepage-HER_emh3hr.jpg" alt="HER">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Humantra_wyks6o.jpg" alt="Humantra">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/LC-1_nvxpgc.jpg" alt="LC">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Lucyd_aekdor.jpg" alt="Lucyd">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219227/homepage-SEEQ_yiwlo9.jpg" alt="SEEQ">
+            </div>
+            <!-- Duplicate set for continuous loop -->
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219231/HMB_dcabwt.jpg" alt="HMB">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219228/homepage-bauer_y99qz7.jpg" alt="BAUER">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/Cheribundi-1-1_qm48zp.jpg" alt="Cheribundi">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219230/DynaVap-1_qhqboj.jpg" alt="DynaVap">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/True-Botanicals_lmoumk.jpg" alt="True Botanicals">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219225/homepage-HER_emh3hr.jpg" alt="HER">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Humantra_wyks6o.jpg" alt="Humantra">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219229/LC-1_nvxpgc.jpg" alt="LC">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219226/homepage-Lucyd_aekdor.jpg" alt="Lucyd">
+            </div>
+            <div class="slide-card">
+                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219227/homepage-SEEQ_yiwlo9.jpg" alt="SEEQ">
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="partners-header">
+            <h2>Partners,<br>Not Clients<span class="red-dot">.</span></h2>
+            <p>Top brands don't just pick us—they stick with us. With exceptional retention rates and loyalty that speak volumes, we're the team that's all in for your long haul and committed to fueling lasting success.</p>
+        </div>
+
+        <!-- Brand Logos Grid -->
+        <div class="brands-grid">
+            <div class="brand-logo">kroma.</div>
+            <div class="brand-logo">MATCHA BAR</div>
+            <div class="brand-logo">Microsoft</div>
+            <div class="brand-logo">NEWTON GOLF</div>
+            <div class="brand-logo">ANIMAL</div>
+            <div class="brand-logo">BAUER</div>
+            <div class="brand-logo">Bearaby</div>
+            <div class="brand-logo">BIOTRUST</div>
+            <div class="brand-logo">cheribundi</div>
+        </div>
+
+        <div class="brands-grid">
+            <div class="brand-logo">SHEEFIT</div>
+            <div class="brand-logo">TED</div>
+            <div class="brand-logo">THE NUE CO</div>
+            <div class="brand-logo">THESIS</div>
+            <div class="brand-logo">TRUE BOTANICALS</div>
+            <div class="brand-logo">Paul Stuart</div>
+            <div class="brand-logo">PEZ</div>
+            <div class="brand-logo">peluva</div>
+            <div class="brand-logo">PUBLIC GOODS</div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">🌿</div>
+                <h3>Back to back<br>Inc. 5000 Honoree</h3>
+                <p>Our results and commitment to our partners has led to rapid growth. This has landed us on the Inc. 500 list of the fasting growing, private companies in 2023 and 2024.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon klaviyo">K</div>
+                <h3>Klaviyo Master Elite<br>Agency</h3>
+                <p>The Elite Tier is Klaviyo's highest partner status, achieved by only 0.2% of 6,500+ partners. We were handpicked by Klaviyo for our impressive retention expertise.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <h3>Billions in Attributed<br>Revenue</h3>
+                <p>We have tracked billions of dollars in attributed revenue for our partners over the years through paid media and retention efforts. Our impact is only continuing to grow, let us drive your growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Partners Section */
+        .partners-section {
+            padding: 100px 60px;
+            background-color: #f8f5f2;
+        }
+
+        .partners-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 80px;
+            gap: 100px;
+        }
+
+        .partners-header h2 {
+            font-size: 64px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .red-dot {
+            color: #ff6b35;
+        }
+
+        .partners-header p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            max-width: 500px;
+            margin: 0;
+        }
+
+        /* Brands Grid */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 100px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 30px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.klaviyo {
+            background-color: #ff9d7e;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0 auto 30px;
+        }
+
+        .stat-card h3 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .stat-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</body>
+</html>
