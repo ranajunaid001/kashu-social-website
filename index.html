@@ -1120,8 +1120,8 @@
 
     <!-- Footer CTA Section -->
     <section class="footer-cta">
-        <svg class="footer-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,100 C480,0 960,0 1440,100 L1440,100 L0,100 Z" fill="#1a1a1a"/>
+        <svg class="footer-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 50" preserveAspectRatio="none">
+            <path d="M0,50 C480,0 960,0 1440,50 L1440,50 L0,50 Z" fill="#1a1a1a"/>
         </svg>
         <div class="footer-cta-content">
             <h2>Let's scale your<br>brand, together<span class="red-dot">.</span></h2>
@@ -1231,11 +1231,11 @@
                 const maxDistance = window.innerWidth / 2;
                 
                 // Calculate scale based on distance from center
-                // Cards at center are smallest (0.85), cards at edges are full size (1)
-                const scale = 0.85 + (distanceFromCenter / maxDistance) * 0.15;
+                // Cards at center are smallest (0.75), cards at edges are full size (1)
+                const scale = 0.75 + (distanceFromCenter / maxDistance) * 0.25;
                 
                 // Apply negative margin to cards near center to reduce spacing
-                const marginReduction = (1 - scale) * 20; // Reduce margin based on scale
+                const marginReduction = (1 - scale) * 25; // Reduce margin based on scale
                 
                 card.style.transform = `scale(${scale})`;
                 card.style.marginLeft = `-${marginReduction}px`;
