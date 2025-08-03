@@ -605,6 +605,213 @@
                 padding: 0.5rem 1rem;
             }
         }
+
+        /* Footer CTA Section */
+        .footer-cta {
+            background-color: #1a1a1a;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .footer-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-cta h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 500;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .footer-cta p {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 2.5rem;
+        }
+
+        .email-link {
+            color: var(--primary-orange);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .email-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Footer */
+        .main-footer {
+            background-color: #0a0a0a;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo::before {
+            content: '';
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+        }
+
+        .footer-column h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-address p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-contact {
+            margin-top: 1.5rem;
+        }
+
+        /* Newsletter */
+        .newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.5rem;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .newsletter-form button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .clutch-badge {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.875rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -899,6 +1106,80 @@
             <div class="badge-pill">🎯 BACK TO BACK INC. 5000 HONOREE</div>
         </div>
     </section>
+
+    <!-- Footer CTA Section -->
+    <section class="footer-cta">
+        <div class="footer-cta-content">
+            <h2>Let's scale your<br>brand, together<span class="red-dot">.</span></h2>
+            <p>Get a <a href="mailto:hello@klyne.com" class="email-link">hello@klyne.com</a></p>
+            <a href="#contact" class="cta-button">Contact us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">Klyne</div>
+                <div class="footer-address">
+                    <p>300 Cadman Plaza West<br>
+                    12th Floor<br>
+                    Brooklyn, NY 11201</p>
+                    <p class="footer-contact">
+                        (347) 619-3312<br>
+                        hello@klyne.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="#case-studies">Case studies</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Full-Funnel Growth</a></li>
+                    <li><a href="#retention">Retention</a></li>
+                    <li><a href="#creative">Creative on Demand</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Dribbble</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column newsletter">
+                <h3>Sign up for our newsletter<span class="red-dot">.</span></h3>
+                <p>Stay updated about the latest industry trends.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email address" required>
+                    <button type="submit">Sign up</button>
+                </form>
+                <div class="clutch-badge">
+                    <img src="https://i.imgur.com/clutch-badge.png" alt="Reviewed on Clutch - 38 Reviews">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025, Klyne LLC</p>
+            <div class="footer-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Mobile Menu Script -->
     <script>
