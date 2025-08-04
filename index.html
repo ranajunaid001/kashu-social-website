@@ -630,11 +630,9 @@
 
         /* Mobile adjustments for showcase and client results */
         @media (max-width: 768px) {
-            /* Client Results Section - Mobile First Fix */
+            /* Hide Client Results Section on Mobile */
             .client-results-section {
-                margin: 2rem 0;
-                display: block;
-                position: relative;
+                display: none;
             }
 
             .showcase-container {
@@ -653,52 +651,6 @@
             .badge-pill {
                 font-size: 0.75rem;
                 padding: 0.5rem 1rem;
-            }
-
-            /* Client Results Mobile */
-            .results-carousel {
-                height: auto;
-                min-height: 600px;
-            }
-
-            .carousel-slide {
-                flex-direction: column;
-                height: auto;
-                min-height: 600px;
-            }
-
-            .slide-image {
-                width: 100%;
-                height: 350px;
-            }
-
-            .slide-image img {
-                object-fit: contain;
-                padding: 1rem;
-            }
-
-            .slide-content {
-                width: 100%;
-                padding: 2rem;
-            }
-
-            .client-name {
-                font-size: 1.5rem;
-            }
-
-            .metric-value {
-                font-size: 2rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .carousel-dots {
-                bottom: 1rem;
-                right: 50%;
-                transform: translateX(50%);
             }
         }
 
