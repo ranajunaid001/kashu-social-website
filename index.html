@@ -240,104 +240,222 @@
             margin: 0 auto;
         }
 
-        /* Stats Section - Mobile First */
-        .stats-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
+        /* Client Results Carousel Section */
+        .client-results-section {
+            position: relative;
+            background-color: var(--bg-light);
+            overflow: hidden;
+            margin: 4rem 0;
         }
 
-        .stat-card {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        .results-carousel {
+            position: relative;
+            width: 100%;
+            height: 600px;
         }
 
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             display: flex;
-            align-items: center;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        /* Left side - Image */
+        .slide-image {
+            width: 60%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Right side - Content */
+        .slide-content {
+            width: 40%;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            height: 80px;
+            background-color: var(--bg-light);
         }
 
-        .stat-icon.klaviyo {
-            background-color: #ff9d7e;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 1rem;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0 auto 1.5rem;
-        }
-
-        .stat-card h3 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .stat-card p {
-            font-size: 0.875rem;
-            line-height: 1.6;
-            color: var(--text-gray);
-        }
-
-        /* Animated Logo Rows */
-        .animated-logos {
-            padding: 3rem 0;
-            overflow: hidden;
-        }
-
-        .logo-track-wrapper {
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .logo-track {
-            display: flex;
-            gap: 3rem;
-            white-space: nowrap;
-            align-items: center;
-        }
-
-        .track-right {
-            animation: scrollRight 40s linear infinite;
-        }
-
-        .track-left {
-            animation: scrollLeft 40s linear infinite;
-        }
-
-        @keyframes scrollRight {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @keyframes scrollLeft {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        .logo-img {
-            height: 30px;
-            width: auto;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .logo-item {
+        .results-header {
             font-size: 1.125rem;
             font-weight: 600;
-            display: inline-flex;
+            letter-spacing: 0.05em;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .results-header::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-dark);
+        }
+
+        .client-name {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .service-type {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem 2rem;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.4;
+        }
+
+        /* Special case for 3 metrics */
+        .metrics-grid.three-metrics {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .metrics-grid.three-metrics .metric-value {
+            font-size: 2rem;
+        }
+
+        /* Carousel Dots */
+        .carousel-dots {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.75rem;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary-orange);
+        }
+
+        /* Dynamic Showcase Section */
+        .showcase-section {
+            position: relative;
+            margin-top: -250px;
+            overflow: hidden;
+            padding-top: 250px;
+            z-index: 20;
+        }
+
+        .showcase-container {
+            position: relative;
+            height: 500px;
+            display: flex;
             align-items: center;
+        }
+
+        .showcase-track {
+            display: flex;
+            gap: 0.25rem;
+            animation: showcaseSlide 120s linear infinite;
+            align-items: center;
+        }
+
+        @keyframes showcaseSlide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .showcase-card {
             flex-shrink: 0;
+            width: 280px;
+            height: 420px;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.6s ease;
+            position: relative;
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Scale effect based on position */
+        .showcase-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Bottom badges */
+        .showcase-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        .badge-pill {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         /* Tablet Styles */
@@ -383,14 +501,6 @@
 
             .brands-grid {
                 grid-template-columns: repeat(6, 1fr);
-            }
-
-            .stats-section {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .logo-img {
-                height: 35px;
             }
         }
 
@@ -473,10 +583,6 @@
             .partners-header p {
                 max-width: none;
             }
-
-            .logo-img {
-                height: 40px;
-            }
         }
 
         /* Large Desktop */
@@ -490,105 +596,7 @@
             }
         }
 
-        /* Loading optimization */
-        img {
-            loading: lazy;
-            decoding: async;
-        }
-
-        /* Accessibility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Focus styles */
-        a:focus, button:focus {
-            outline: 2px solid var(--primary-orange);
-            outline-offset: 2px;
-        }
-
-        /* Dynamic Showcase Section */
-        .showcase-section {
-            position: relative;
-            margin-top: -250px;
-            overflow: hidden;
-            padding-top: 250px;
-            z-index: 20;
-        }
-
-        .showcase-container {
-            position: relative;
-            height: 500px;
-            display: flex;
-            align-items: center;
-        }
-
-        .showcase-track {
-            display: flex;
-            gap: 0.25rem;
-            animation: showcaseSlide 120s linear infinite;
-            align-items: center;
-        }
-
-        @keyframes showcaseSlide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .showcase-card {
-            flex-shrink: 0;
-            width: 280px;
-            height: 420px;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            transition: transform 0.6s ease;
-            position: relative;
-        }
-
-        .showcase-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Scale effect based on position */
-        .showcase-track:hover {
-            animation-play-state: paused;
-        }
-
-        /* Bottom badges */
-        .showcase-badges {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding: 0 1rem;
-        }
-
-        .badge-pill {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Mobile adjustments for showcase */
+        /* Mobile adjustments for showcase and client results */
         @media (max-width: 768px) {
             .showcase-container {
                 height: 350px;
@@ -606,6 +614,44 @@
             .badge-pill {
                 font-size: 0.75rem;
                 padding: 0.5rem 1rem;
+            }
+
+            /* Client Results Mobile */
+            .results-carousel {
+                height: auto;
+            }
+
+            .carousel-slide {
+                flex-direction: column;
+            }
+
+            .slide-image {
+                width: 100%;
+                height: 400px;
+            }
+
+            .slide-content {
+                width: 100%;
+                padding: 2rem;
+            }
+
+            .client-name {
+                font-size: 1.5rem;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .carousel-dots {
+                bottom: 1rem;
+                right: 50%;
+                transform: translateX(50%);
             }
         }
 
@@ -830,6 +876,31 @@
                 text-align: center;
             }
         }
+
+        /* Loading optimization */
+        img {
+            loading: lazy;
+            decoding: async;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles */
+        a:focus, button:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
@@ -957,81 +1028,141 @@
                 <h2>Partners,<br>Not Clients<span class="red-dot">.</span></h2>
                 <p>Top brands don't just pick us—they stick with us. With exceptional retention rates and loyalty that speak volumes, we're the team that's all in for your long haul and committed to fueling lasting success.</p>
             </div>
-
-            <!-- Stats Section -->
-            <div class="stats-section">
-                <div class="stat-card">
-                    <div class="stat-icon">🌿</div>
-                    <h3>Back to back<br>Inc. 5000 Honoree</h3>
-                    <p>Our results and commitment to our partners has led to rapid growth. This has landed us on the Inc. 500 list of the fasting growing, private companies in 2023 and 2024.</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon klaviyo">K</div>
-                    <h3>Klaviyo Master Elite<br>Agency</h3>
-                    <p>The Elite Tier is Klaviyo's highest partner status, achieved by only 0.2% of 6,500+ partners. We were handpicked by Klaviyo for our impressive retention expertise.</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">📈</div>
-                    <h3>Billions in Attributed<br>Revenue</h3>
-                    <p>We have tracked billions of dollars in attributed revenue for our partners over the years through paid media and retention efforts. Our impact is only continuing to grow, let us drive your growth.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Animated Logo Rows -->
-    <section class="animated-logos">
-        <div class="logo-track-wrapper">
-            <div class="logo-track track-right">
-                <!-- First set -->
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/bauer_llfei7.jpg" alt="BAUER" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/bearaby_ulrhfs.jpg" alt="Bearaby" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/biotrust_eqg3cd.jpg" alt="BioTRUST" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/cheribundi_nfnat6.jpg" alt="cheribundi" class="logo-img" loading="lazy">
-                <div class="logo-item">HUMANTRA</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/kroma_e1pdpr.jpg" alt="kroma" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/matchabar_cg3wgb.jpg" alt="MATCHA BAR" class="logo-img" loading="lazy">
-                <div class="logo-item">■ Microsoft</div>
-                <div class="logo-item">NEWTON GOLF</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/animal_nywfd4.jpg" alt="ANIMAL" class="logo-img" loading="lazy">
-                <!-- Duplicate for seamless loop -->
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/bauer_llfei7.jpg" alt="BAUER" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/bearaby_ulrhfs.jpg" alt="Bearaby" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/biotrust_eqg3cd.jpg" alt="BioTRUST" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/cheribundi_nfnat6.jpg" alt="cheribundi" class="logo-img" loading="lazy">
-                <div class="logo-item">HUMANTRA</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/kroma_e1pdpr.jpg" alt="kroma" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/matchabar_cg3wgb.jpg" alt="MATCHA BAR" class="logo-img" loading="lazy">
-                <div class="logo-item">■ Microsoft</div>
-                <div class="logo-item">NEWTON GOLF</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/animal_nywfd4.jpg" alt="ANIMAL" class="logo-img" loading="lazy">
+    <!-- Client Results Carousel Section -->
+    <section class="client-results-section">
+        <div class="results-carousel">
+            <!-- Slide 1: K-Swiss -->
+            <div class="carousel-slide active">
+                <div class="slide-image">
+                    <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/f_auto,q_auto/v1754316394/16161041-c1126119-d016-4e2f-9dda_tuquq8.avif" alt="K-Swiss Tennis Shoes" loading="lazy">
+                </div>
+                <div class="slide-content">
+                    <h2 class="results-header">CLIENT RESULTS</h2>
+                    <h3 class="client-name">K-Swiss</h3>
+                    <p class="service-type">Paid Social</p>
+                    <div class="metrics-grid three-metrics">
+                        <div class="metric">
+                            <div class="metric-value" data-target="485" data-suffix="%">0%</div>
+                            <div class="metric-label">ROAS</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="200" data-suffix="+%">0%</div>
+                            <div class="metric-label">INCREASED ROAS</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="40" data-suffix=" Days">0 Days</div>
+                            <div class="metric-label">HIT 90-DAY ROAS GOAL IN</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="logo-track-wrapper">
-            <div class="logo-track track-left">
-                <!-- First set -->
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/true-botanicals_iarztj.jpg" alt="TRUE BOTANICALS" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/paulstuart_iqxsft.jpg" alt="Paul Stuart" class="logo-img" loading="lazy">
-                <div class="logo-item">PEZ</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/peluva_wboymk.jpg" alt="peluva" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/public-goods_wfkwlm.jpg" alt="PUBLIC GOODS" class="logo-img" loading="lazy">
-                <div class="logo-item">SEED</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/shefit_nluoqe.jpg" alt="SHEEFIT" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/ted_qdxw2a.jpg" alt="TED" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/the-nue-co_ah4mxl.jpg" alt="THE NUE CO" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/thesis_wolrnp.jpg" alt="THESIS" class="logo-img" loading="lazy">
-                <!-- Duplicate for seamless loop -->
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/true-botanicals_iarztj.jpg" alt="TRUE BOTANICALS" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/paulstuart_iqxsft.jpg" alt="Paul Stuart" class="logo-img" loading="lazy">
-                <div class="logo-item">PEZ</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/peluva_wboymk.jpg" alt="peluva" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218469/public-goods_wfkwlm.jpg" alt="PUBLIC GOODS" class="logo-img" loading="lazy">
-                <div class="logo-item">SEED</div>
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754219023/shefit_nluoqe.jpg" alt="SHEEFIT" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/ted_qdxw2a.jpg" alt="TED" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/the-nue-co_ah4mxl.jpg" alt="THE NUE CO" class="logo-img" loading="lazy">
-                <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754218470/thesis_wolrnp.jpg" alt="THESIS" class="logo-img" loading="lazy">
+
+            <!-- Slide 2: Barstool Sports -->
+            <div class="carousel-slide">
+                <div class="slide-image">
+                    <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/f_auto,q_auto/v1754316257/make-up-beauty-products-with-copy-space_er6aha.jpg" alt="Barstool Sports" loading="lazy">
+                </div>
+                <div class="slide-content">
+                    <h2 class="results-header">CLIENT RESULTS</h2>
+                    <h3 class="client-name">Barstool Sports</h3>
+                    <p class="service-type">Paid Search</p>
+                    <div class="metrics-grid three-metrics">
+                        <div class="metric">
+                            <div class="metric-value" data-target="1082" data-suffix="%">0%</div>
+                            <div class="metric-label">E-COMMERCE REVENUE</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="924" data-suffix="%">0%</div>
+                            <div class="metric-label">LIFETIME RETURN ON AD SPEND (ROAS)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="4000" data-suffix="%">0%</div>
+                            <div class="metric-label">PAID SEARCH BUDGET</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Crocs -->
+            <div class="carousel-slide">
+                <div class="slide-image">
+                    <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/f_auto,q_auto/v1754316257/pexels-drakenicolls-9430589_vu88k6.jpg" alt="Crocs" loading="lazy">
+                </div>
+                <div class="slide-content">
+                    <h2 class="results-header">CLIENT RESULTS</h2>
+                    <h3 class="client-name">Crocs</h3>
+                    <p class="service-type">Social Media</p>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-target="4688375" data-format="number">0</div>
+                            <div class="metric-label">IMPRESSIONS</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="396147" data-format="number">0</div>
+                            <div class="metric-label">ENGAGEMENTS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Lorna Jane -->
+            <div class="carousel-slide">
+                <div class="slide-image">
+                    <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/f_auto,q_auto/v1754316256/61FTTYIS2KL._UF1000_1000_QL80__ivdpz9.jpg" alt="Lorna Jane Activewear" loading="lazy">
+                </div>
+                <div class="slide-content">
+                    <h2 class="results-header">CLIENT RESULTS</h2>
+                    <h3 class="client-name">Lorna Jane</h3>
+                    <p class="service-type">Paid Search Paid Social Social Media</p>
+                    <div class="metrics-grid three-metrics">
+                        <div class="metric">
+                            <div class="metric-value" data-target="1127" data-suffix="%">0%</div>
+                            <div class="metric-label">FACEBOOK ROI</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="460" data-suffix="%">0%</div>
+                            <div class="metric-label">ADWORDS ROI</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="42" data-prefix="+" data-suffix="%">0%</div>
+                            <div class="metric-label">IG FOLLOWERS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: The Getty Store -->
+            <div class="carousel-slide">
+                <div class="slide-image">
+                    <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/f_auto,q_auto/v1754316256/XX-SRSTH371GWP-NTAA-HR-F_lyw49s.jpg" alt="The Getty Store" loading="lazy">
+                </div>
+                <div class="slide-content">
+                    <h2 class="results-header">CLIENT RESULTS</h2>
+                    <h3 class="client-name">The Getty Store</h3>
+                    <p class="service-type">Strategy Paid Social Paid Search Content</p>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-target="99.1" data-suffix="%">0%</div>
+                            <div class="metric-label">YOY REVENUE INCREASE</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-target="107.2" data-suffix="%">0%</div>
+                            <div class="metric-label">YOY NEW USER INCREASE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
             </div>
         </div>
     </section>
@@ -1252,6 +1383,136 @@
         // Start the animation
         if (showcaseTrack) {
             animateShowcase();
+        }
+
+        // Client Results Carousel
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let autoPlayInterval;
+
+        // Number animation function
+        function animateValue(element, start, end, duration, format) {
+            let startTimestamp = null;
+            const prefix = element.dataset.prefix || '';
+            const suffix = element.dataset.suffix || '';
+            
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                
+                let value = Math.floor(progress * (end - start) + start);
+                
+                if (format === 'number') {
+                    value = value.toLocaleString();
+                } else if (element.dataset.target.includes('.')) {
+                    value = (progress * (end - start) + start).toFixed(1);
+                }
+                
+                element.textContent = prefix + value + suffix;
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            
+            window.requestAnimationFrame(step);
+        }
+
+        // Show slide function
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            // Reset numbers to 0 before animating
+            const activeSlide = slides[index];
+            const metrics = activeSlide.querySelectorAll('.metric-value');
+            
+            metrics.forEach(metric => {
+                const prefix = metric.dataset.prefix || '';
+                const suffix = metric.dataset.suffix || '';
+                const format = metric.dataset.format;
+                
+                // Reset to 0
+                if (format === 'number') {
+                    metric.textContent = '0';
+                } else {
+                    metric.textContent = prefix + '0' + suffix;
+                }
+                
+                // Then animate
+                const target = parseFloat(metric.dataset.target);
+                animateValue(metric, 0, target, 2000, format);
+            });
+            
+            currentSlide = index;
+        }
+
+        // Next slide function
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-play functionality
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 6000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoPlay();
+                showSlide(index);
+                startAutoPlay();
+            });
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const resultsCarousel = document.querySelector('.results-carousel');
+        if (resultsCarousel) {
+            resultsCarousel.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            resultsCarousel.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    stopAutoPlay();
+                    nextSlide();
+                    startAutoPlay();
+                }
+                if (touchEndX > touchStartX + 50) {
+                    stopAutoPlay();
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                    startAutoPlay();
+                }
+            }
+
+            // Start autoplay
+            startAutoPlay();
+
+            // Pause on hover
+            resultsCarousel.addEventListener('mouseenter', stopAutoPlay);
+            resultsCarousel.addEventListener('mouseleave', startAutoPlay);
+
+            // Initialize first slide with animation
+            showSlide(0);
         }
     </script>
 </body>
