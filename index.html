@@ -1,4 +1,68 @@
-<!DOCTYPE html>
+</section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies-section">
+        <div class="case-studies-container">
+            <div class="case-study-card active">
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <h2 class="case-study-title">True<br>Botanicals<span class="red-dot">.</span></h2>
+                        <p class="case-study-description">
+                            True Botanicals is a clean beauty pioneer offering luxurious skincare powered by nature and backed by clinical results. Their brand is synonymous with sustainability, ingredient integrity, and female empowerment. As they scaled, they needed a growth partner to diversify creative, scale new customer acquisition, and enhance owned channel performance.
+                        </p>
+                        <a href="#" class="learn-more-btn">Learn more</a>
+                    </div>
+                    <div class="case-study-image">
+                        <img src="https://via.placeholder.com/800x600" alt="True Botanicals Case Study">
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Kelly Honts" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Kelly Honts</h4>
+                                <p>Senior Marketing Manager - Omnichannel, True Botanicals</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            Lilo Social has delivered excellent performance marketing services, increasing efficiency and performance. The team is responsive, timely, and helpful. The team goes above and beyond to provide quality work and meet the client's expectations. The team's polished expertise is also impressive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <h2 class="case-study-title">Case Study 2<span class="red-dot">.</span></h2>
+                        <p class="case-study-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <a href="#" class="learn-more-btn">Learn more</a>
+                    </div>
+                    <div class="case-study-image">
+                        <img src="https://via.placeholder.com/800x600" alt="Case Study 2">
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Client Name</h4>
+                                <p>Position, Company</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            Testimonial text goes here...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <h2 class="case-study-title">Case Study 3<span class="red-dot">.</span></h2>
+                        <p class="case-study-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -417,6 +481,201 @@
             background-color: var(--primary-orange);
         }
 
+        /* Case Studies Section */
+        .case-studies-section {
+            padding: 6rem 2rem;
+            background-color: var(--primary-dark);
+            color: white;
+            overflow: hidden;
+        }
+
+        .case-studies-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .case-study-card {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-card.active {
+            display: block;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .case-study-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-study-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-description {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 2.2rem 2.2rem 2.2rem 0.5rem;
+            border: 2px solid white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .learn-more-btn:hover {
+            background-color: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .case-study-image {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-card {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            color: var(--primary-dark);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-author {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        /* Navigation */
+        .case-study-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .nav-dot {
+            width: 48px;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot.active {
+            background: var(--primary-orange);
+            width: 60px;
+        }
+
+        .nav-arrows {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-arrow {
+            width: 56px;
+            height: 56px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-arrow.next {
+            color: var(--primary-orange);
+            border-color: var(--primary-orange);
+        }
+
+        .nav-arrow.next:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
         /* Dynamic Showcase Section */
         .showcase-section {
             position: relative;
@@ -634,6 +893,40 @@
             /* Hide Client Results Section on Mobile */
             .client-results-section {
                 display: none;
+            }
+
+            /* Case Studies Mobile */
+            .case-studies-section {
+                padding: 4rem 1rem;
+            }
+
+            .case-study-content {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            .case-study-title {
+                font-size: 2rem;
+            }
+
+            .case-study-description {
+                font-size: 1rem;
+            }
+
+            .case-study-image {
+                height: 300px;
+            }
+
+            .testimonial-card {
+                position: static;
+                margin-top: 2rem;
+                max-width: none;
+            }
+
+            .case-study-nav {
+                flex-direction: column;
+                gap: 2rem;
             }
 
             .showcase-section {
@@ -1181,6 +1474,113 @@
         </div>
     </section>
 
+    <!-- Case Studies Section -->
+    <section class="case-studies-section">
+        <div class="case-studies-container">
+            <div class="case-study-card active">
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <h2 class="case-study-title">Fjern<span class="red-dot">.</span></h2>
+                        <p class="case-study-description">
+                            Fjern is a clean beauty pioneer offering luxurious skincare powered by nature and backed by clinical results. Their brand is synonymous with sustainability, ingredient integrity, and female empowerment. As they scaled, they needed a growth partner to diversify creative, scale new customer acquisition, and enhance owned channel performance.
+                        </p>
+                        <a href="#" class="learn-more-btn">Learn more</a>
+                    </div>
+                    <div class="case-study-image">
+                        <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754324479/Aktiv_Jacket_Lifestyle_lredvd.webp" alt="Fjern Case Study">
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Kelly Honts" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Kelly Honts</h4>
+                                <p>Senior Marketing Manager - Omnichannel, Fjern</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            Lilo Social has delivered excellent performance marketing services, increasing efficiency and performance. The team is responsive, timely, and helpful. The team goes above and beyond to provide quality work and meet the client's expectations. The team's polished expertise is also impressive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <h2 class="case-study-title">Wunderwerk<span class="red-dot">.</span></h2>
+                        <p class="case-study-description">
+                            Wunderwerk is redefining the protein supplement industry with a breakthrough product: clear, fruity protein drinks that feel more like a refreshing beverage than a traditional protein shake. Known for their vibrant branding and loyal fan base, Wunderwerk captured attention quickly in the fitness and wellness space. However, their retention marketing didn't match the energy of their product, leaving room for significant improvement.
+                        </p>
+                        <a href="#" class="learn-more-btn">Learn more</a>
+                    </div>
+                    <div class="case-study-image">
+                        <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754324750/desktop_m2_uhirvd.jpg" alt="Wunderwerk Case Study">
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Jake Hoffman" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Jake Hoffman</h4>
+                                <p>Director of E-Commerce, Wunderwerk Supply</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "They demonstrated a forward-thinking mindset by regularly introducing fresh ideas and innovative approaches."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <h2 class="case-study-title">Éclat Chocolate<span class="red-dot">.</span></h2>
+                        <p class="case-study-description">
+                            Éclat Chocolate is a science-backed hydration brand rooted in clean, functional wellness. With a bold mission to bring smarter hydration solutions to everyday consumers, they began expanding rapidly from Dubai into new global markets like the UK. Their direct-to-consumer model required a growth engine that could keep pace with rising demand and a growing subscriber base.
+                        </p>
+                        <a href="#" class="learn-more-btn">Learn more</a>
+                    </div>
+                    <div class="case-study-image">
+                        <img src="https://res.cloudinary.com/dozrtbvmz/image/upload/v1754325100/c7d5c233f7d33984817aa2e980543ab20fb94504153390dd96f1a9679a5a6c5a_hsugzt.webp" alt="Éclat Chocolate Case Study">
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Charles Wright" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Charles Wright</h4>
+                                <p>Founder, Éclat Chocolate</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "They've added a whole new dimension of growth to our business."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="case-study-nav">
+                <div class="nav-dots">
+                    <span class="nav-dot active"></span>
+                    <span class="nav-dot"></span>
+                    <span class="nav-dot"></span>
+                </div>
+                <div class="nav-arrows">
+                    <button class="nav-arrow prev" aria-label="Previous case study">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="nav-arrow next" aria-label="Next case study">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Dynamic Showcase Section -->
     <section class="showcase-section">
         <div class="showcase-container">
@@ -1528,6 +1928,42 @@
             // Initialize first slide with animation
             showSlide(0);
         }
+
+        // Case Studies Carousel
+        const caseStudyCards = document.querySelectorAll('.case-study-card');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const prevBtn = document.querySelector('.nav-arrow.prev');
+        const nextBtn = document.querySelector('.nav-arrow.next');
+        let currentCaseStudy = 0;
+
+        function showCaseStudy(index) {
+            caseStudyCards.forEach(card => card.classList.remove('active'));
+            navDots.forEach(dot => dot.classList.remove('active'));
+            
+            caseStudyCards[index].classList.add('active');
+            navDots[index].classList.add('active');
+            currentCaseStudy = index;
+        }
+
+        function nextCaseStudy() {
+            currentCaseStudy = (currentCaseStudy + 1) % caseStudyCards.length;
+            showCaseStudy(currentCaseStudy);
+        }
+
+        function prevCaseStudy() {
+            currentCaseStudy = (currentCaseStudy - 1 + caseStudyCards.length) % caseStudyCards.length;
+            showCaseStudy(currentCaseStudy);
+        }
+
+        // Event listeners for case studies navigation
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', nextCaseStudy);
+            prevBtn.addEventListener('click', prevCaseStudy);
+        }
+
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showCaseStudy(index));
+        });
     </script>
 </body>
 </html>
