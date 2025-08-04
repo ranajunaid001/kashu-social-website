@@ -292,9 +292,25 @@
             background-color: var(--bg-light);
         }
 
-        /* Special background for Lorna Jane slide */
+        /* Custom backgrounds for each slide */
+        .carousel-slide:nth-child(1) .slide-content {
+            background-color: #c5c1b8; /* K-Swiss */
+        }
+
+        .carousel-slide:nth-child(2) .slide-content {
+            background-color: #f3f3f3; /* Barstool Sports */
+        }
+
+        .carousel-slide:nth-child(3) .slide-content {
+            background-color: #f9fafc; /* Crocs */
+        }
+
         .carousel-slide:nth-child(4) .slide-content {
-            background-color: #efe8de;
+            background-color: #efe8de; /* Lorna Jane */
+        }
+
+        .carousel-slide:nth-child(5) .slide-content {
+            background-color: #ffffff; /* The Getty Store */
         }
 
         .results-header {
@@ -374,7 +390,7 @@
             right: 2rem;
             display: flex;
             gap: 0.75rem;
-            z-index: 10;
+            z-index: 100;
         }
 
         .dot {
@@ -384,9 +400,20 @@
             background-color: #ddd;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            position: relative;
+            border: none;
+            padding: 0;
+        }
+
+        .dot:hover {
+            background-color: #bbb;
         }
 
         .dot.active {
+            background-color: var(--primary-orange);
+        }
+
+        .dot.active:hover {
             background-color: var(--primary-orange);
         }
 
@@ -1163,11 +1190,11 @@
 
             <!-- Carousel Dots -->
             <div class="carousel-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-                <span class="dot" data-slide="3"></span>
-                <span class="dot" data-slide="4"></span>
+                <button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
+                <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+                <button class="dot" data-slide="3" aria-label="Go to slide 4"></button>
+                <button class="dot" data-slide="4" aria-label="Go to slide 5"></button>
             </div>
         </div>
     </section>
